@@ -1,8 +1,10 @@
-package com.myapp.bitbrothers;
+package com.myapp.bitbrothers.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.myapp.bitbrothers.R;
 
 public class MainActivity extends AppCompatActivity {
 

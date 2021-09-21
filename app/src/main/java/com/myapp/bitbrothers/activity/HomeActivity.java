@@ -1,4 +1,4 @@
-package com.myapp.bitbrothers;
+package com.myapp.bitbrothers.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.myapp.bitbrothers.R;
 
 public class HomeActivity extends AppCompatActivity {
   private FirebaseAuth firebaseAuth;

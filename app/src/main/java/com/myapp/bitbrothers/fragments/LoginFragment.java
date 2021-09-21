@@ -17,10 +17,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.myapp.bitbrothers.HomeActivity;
+import com.myapp.bitbrothers.activity.HomeActivity;
 import com.myapp.bitbrothers.R;
 import com.myapp.bitbrothers.databinding.FragmentLoginBinding;
-
 
 public class LoginFragment extends Fragment {
   private FragmentLoginBinding binding;

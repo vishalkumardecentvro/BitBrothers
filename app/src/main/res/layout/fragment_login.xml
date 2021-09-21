@@ -47,7 +47,7 @@
       android:layout_marginBottom="10dp"
       android:hint="Password *"
       app:errorEnabled="true"
-      app:helperText="* Required"
+      app:helperText="* Required (min 6 characters)"
       app:helperTextEnabled="true"
       app:passwordToggleEnabled="true">
 

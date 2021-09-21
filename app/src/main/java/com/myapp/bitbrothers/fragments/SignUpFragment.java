@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.myapp.bitbrothers.R;
 import com.myapp.bitbrothers.databinding.FragmentSignUpBinding;
 
-
 public class SignUpFragment extends Fragment {
   private FragmentSignUpBinding binding;
   private FirebaseAuth firebaseAuth;
