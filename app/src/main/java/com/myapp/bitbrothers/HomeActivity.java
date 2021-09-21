@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
   }
 
   private void instantiate() {
+    getSupportActionBar().setTitle("Home page");
     firebaseAuth = FirebaseAuth.getInstance();
 
   }
