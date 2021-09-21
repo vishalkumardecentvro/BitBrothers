@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".MainActivity">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/brand_color_light">
+
+    <ImageView
+      android:layout_width="150dp"
+      android:layout_height="150dp"
+      android:layout_centerInParent="true"
+      android:layout_margin="15dp"
+      android:src="@drawable/bit_brothers" />
+  </RelativeLayout>
+
+  <androidx.fragment.app.FragmentContainerView
+    android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:name="com.myapp.bitbrothers.fragments.LoginFragment"
+    android:layout_height="match_parent" />
+
+
+</LinearLayout>
