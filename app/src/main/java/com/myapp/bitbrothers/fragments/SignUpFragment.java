@@ -3,6 +3,8 @@ package com.myapp.bitbrothers.fragments;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -25,11 +27,16 @@ public class SignUpFragment extends Fragment {
   private FragmentSignUpBinding binding;
   private FirebaseAuth firebaseAuth;
 
-
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+
+  }
+
+  @Override
+  public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+    getActivity().getMenuInflater().inflate(R.menu.home_menu,menu);
   }
 
   @Override
@@ -64,6 +71,13 @@ public class SignUpFragment extends Fragment {
       }
     });
 
+    binding.tvLogIn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        navigateToLoginFragment();
+      }
+    });
+
   }
 
   private void load() {
@@ -72,33 +86,36 @@ public class SignUpFragment extends Fragment {
 
   private void processSignIn() {
     if (binding.tilEmail.getEditText().getText().toString().isEmpty()
-            || binding.tilPassword.getEditText().getText().toString().isEmpty()
-            || binding.tilName.getEditText().getText().toString().isEmpty()) {
+            || binding.tilPassword.getEditText().getText().toString().isEmpty()) {
       Toast.makeText(getContext(), "Please enter valid credentials", Toast.LENGTH_SHORT).show();
       return;
     }
 
     String email = binding.tilEmail.getEditText().getText().toString();
     String password = binding.tilPassword.getEditText().getText().toString();
-    if(password.length()<6)
+    if (password.length() < 6) {
       Toast.makeText(getContext(), "Password length should be greater than 6!", Toast.LENGTH_SHORT).show();
+      return;
+    }
 
     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
       @Override
       public void onSuccess(AuthResult authResult) {
-        Toast.makeText(getContext(), "Successfully registered! Please login!", Toast.LENGTH_SHORT).show();
-
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer, new LoginFragment());
-        fragmentTransaction.commit();
+        Toast.makeText(getContext(), "Successfully registered! Logging you in!", Toast.LENGTH_SHORT).show();
+        navigateToLoginFragment();
       }
     }).addOnFailureListener(new OnFailureListener() {
       @Override
       public void onFailure(@NonNull Exception e) {
-        Log.e("--error--",e.toString());
         Toast.makeText(getContext(), "Given email is already registered!", Toast.LENGTH_SHORT).show();
       }
     });
+  }
+
+  private void navigateToLoginFragment(){
+    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction  = fragmentManager.beginTransaction();
+    fragmentTransaction.replace(R.id.fragmentContainer, new LoginFragment());
+    fragmentTransaction.commit();
   }
 }

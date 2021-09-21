@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment {
       public void onClick(View view) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainer, new SignUpFragment());
+        fragmentTransaction.replace(R.id.fragmentContainer, new SignUpFragment());//.hide(new LoginFragment()).show(new SignUpFragment());
         fragmentTransaction.commit();
       }
     });

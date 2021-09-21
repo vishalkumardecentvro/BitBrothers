@@ -43,7 +43,8 @@
     android:hint="Password *"
     app:errorEnabled="true"
     app:helperText="* Required"
-    app:helperTextEnabled="true">
+    app:helperTextEnabled="true"
+    app:passwordToggleEnabled="true">
 
     <com.google.android.material.textfield.TextInputEditText
       android:layout_width="match_parent"
